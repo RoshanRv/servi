@@ -18,9 +18,9 @@ const SelectRole = ({ role, setRole, handleNext }: Props) => {
                 }}
                 className="text-3xl text-pri"
             >
-                Sign Up
+                Enter Your Details
             </Text>
-            {/*   Roles   */}
+            {/*   Form   */}
             <View className="flex flex-row justify-around items-center w-full mt-16">
                 <RoleCard
                     selectedRole={role}
@@ -35,7 +35,7 @@ const SelectRole = ({ role, setRole, handleNext }: Props) => {
                     src={require("../assets/worker-avatar.webp")}
                 />
             </View>
-            {/* Btn */}
+
             <TouchableOpacity
                 disabled={role ? false : true}
                 className="px-6 py-2 mt-10  bg-white dark:bg-black border-2 border-pri rounded-lg shadow-lg shadow-black  "
@@ -46,7 +46,7 @@ const SelectRole = ({ role, setRole, handleNext }: Props) => {
                         fontFamily: "RalewayBold",
                     }}
                     className="capitalize text-lg text-sec"
-                >{`Sign Up As ${role}`}</Text>
+                >{role==='user'?'Sign Up':'Next'}</Text>
             </TouchableOpacity>
         </View>
     )

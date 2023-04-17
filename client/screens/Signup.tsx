@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import RoleCard, { Roles } from "../components/RoleCard"
 import SelectRole from "../components/SelectRole"
 import SelectWorker from "../components/SelectWorker"
+import PersonalDetails from "../components/PersonalDetails"
 
 type Props = {}
 
@@ -30,6 +31,13 @@ const Signup = (props: Props) => {
             )}
             {stage === 1 && (
                 <SelectWorker
+                    role={role}
+                    setRole={setRole}
+                    handleNext={handleNext}
+                />
+            )}
+            {stage === 2 && (
+                <PersonalDetails
                     role={role}
                     setRole={setRole}
                     handleNext={handleNext}
