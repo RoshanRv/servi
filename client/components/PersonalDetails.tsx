@@ -1,29 +1,30 @@
 import { View, Text, TouchableOpacity, TextInput } from "react-native"
 import React, { useEffect } from "react"
 import RoleCard, { Roles } from "./RoleCard"
-import { Controller, useForm } from "react-hook-form"
+import type { Control, FieldErrors, UseFormHandleSubmit } from "react-hook-form"
 import Form from "./Form"
 import BackBtn from "./BackBtn"
+import { AntDesign } from "@expo/vector-icons"
+import { COLORS } from "../utils/constants"
+import { PersonalDetailsProps } from "../screens/Signup"
 
 type Props = {
     role: "" | Roles
     handleNext: (np: number) => void
     handleBack: (np: number) => void
+    control: Control<PersonalDetailsProps>
+    handleSubmit: UseFormHandleSubmit<PersonalDetailsProps>
+    errors: FieldErrors<PersonalDetailsProps>
 }
 
-interface PersonalDetailsProps {
-    username: string
-    phone: string
-}
-
-const PersonalDetails = ({ role, handleNext, handleBack }: Props) => {
-    const {
-        control,
-        handleSubmit,
-        setError,
-        formState: { errors },
-    } = useForm<PersonalDetailsProps>({})
-
+const PersonalDetails = ({
+    role,
+    handleNext,
+    handleBack,
+    control,
+    errors,
+    handleSubmit,
+}: Props) => {
     return (
         <View className="flex flex-col justify-center items-center w-full h-full">
             <BackBtn handleBack={handleBack} no={1} />
@@ -58,6 +59,24 @@ const PersonalDetails = ({ role, handleNext, handleBack }: Props) => {
                             maxLength: 11,
                         },
                     },
+                    role === "user"
+                        ? {
+                              inputName: "address",
+                              inputType: "multiline",
+                              icon: "map-marker-alt",
+                              inputOptions: {
+                                  required: true,
+                              },
+                          }
+                        : {
+                              inputName: "aadharNo",
+                              labelName: "Aaadhar No",
+                              icon: "address-book",
+                              inputType: "numeric",
+                              inputOptions: {
+                                  required: true,
+                              },
+                          },
                 ]}
             />
 
@@ -75,9 +94,36 @@ const PersonalDetails = ({ role, handleNext, handleBack }: Props) => {
                     }}
                     className="capitalize text-lg text-sec"
                 >
-                    {role === "user" ? "Sign Up" : "Next"}
+                    {"Sign Up"}
                 </Text>
             </TouchableOpacity>
+            {/*   Note - Only Worker   */}
+            {role !== "user" && (
+                <View className=" -mb-10  mt-6 p-3 rounded-lg flex flex-row items-center w-[90%] bg-white dark:bg-black border-2 border-pri shadow-lg shadow-black ">
+                    <AntDesign name="infocirlce" size={24} color={COLORS.sec} />
+                    {/* Info */}
+                    <View className="text-pri w-[95%]">
+                        <Text
+                            className="pl-3 text-pri"
+                            style={{
+                                fontFamily: "RalewayRegular",
+                            }}
+                        >
+                            Your profile details will only be visible to users
+                            after they have been verified by our admin team.
+                        </Text>
+                        <Text
+                            className="pl-3 pt-2 text-pri"
+                            style={{
+                                fontFamily: "RalewayRegular",
+                            }}
+                        >
+                            You can check the status of your verification in
+                            your profile settings.
+                        </Text>
+                    </View>
+                </View>
+            )}
         </View>
     )
 }
