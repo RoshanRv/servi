@@ -5,6 +5,7 @@ import RoleCard, { Roles } from "../components/RoleCard"
 import SelectRole from "../components/SelectRole"
 import SelectWorker from "../components/SelectWorker"
 import PersonalDetails from "../components/PersonalDetails"
+import CredentialsDetails from "../components/CredentialsDetails"
 
 type Props = {}
 
@@ -14,8 +15,8 @@ const Signup = (props: Props) => {
     const handleNext = (no: number) => {
         setStage((e) => e + no)
     }
-    const handleBack = () => {
-        setStage((e) => e - 1)
+    const handleBack = (no: number) => {
+        setStage((e) => e - no)
     }
 
     const [role, setRole] = useState<"" | Roles>("")
@@ -34,13 +35,21 @@ const Signup = (props: Props) => {
                     role={role}
                     setRole={setRole}
                     handleNext={handleNext}
+                    handleBack={handleBack}
                 />
             )}
             {stage === 2 && (
+                <CredentialsDetails
+                    role={role}
+                    handleNext={handleNext}
+                    handleBack={handleBack}
+                />
+            )}
+            {stage === 3 && (
                 <PersonalDetails
                     role={role}
-                    setRole={setRole}
                     handleNext={handleNext}
+                    handleBack={handleBack}
                 />
             )}
         </Layout>
