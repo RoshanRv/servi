@@ -1,16 +1,20 @@
 import { View, Text, TouchableOpacity } from "react-native"
 import React from "react"
 import RoleCard, { Roles } from "./RoleCard"
+import BackBtn from "./BackBtn"
 
 type Props = {
     role: "" | Roles
     setRole: (role: Roles) => void
     handleNext: (np: number) => void
+    handleBack: (np: number) => void
 }
 
-const SelectWorker = ({ handleNext, role, setRole }: Props) => {
+const SelectWorker = ({ handleNext, role, setRole, handleBack }: Props) => {
     return (
         <View className="flex flex-col justify-center items-center w-full h-full">
+            <BackBtn handleBack={handleBack} no={1} />
+
             {/*   Title   */}
             <Text
                 style={{
