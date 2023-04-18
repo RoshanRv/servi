@@ -1,30 +1,35 @@
 import { View, Text, TouchableOpacity, TextInput } from "react-native"
 import React, { useEffect } from "react"
 import RoleCard, { Roles } from "./RoleCard"
-import { Controller, useForm } from "react-hook-form"
+import type {
+    Control,
+    FieldErrors,
+    UseFormHandleSubmit,
+    UseFormSetError,
+} from "react-hook-form"
 import Form from "./Form"
 import BackBtn from "./BackBtn"
+import { CredentialsDetailsProps } from "../screens/Signup"
 
 type Props = {
+    control: Control<CredentialsDetailsProps, any>
     role: "" | Roles
     handleNext: (np: number) => void
     handleBack: (np: number) => void
+    setError: UseFormSetError<CredentialsDetailsProps>
+    handleSubmit: UseFormHandleSubmit<CredentialsDetailsProps>
+    errors: FieldErrors<CredentialsDetailsProps>
 }
 
-interface CredentialsDetailsProps {
-    email: string
-    password: string
-    confirmPassword: string
-}
-
-const CredentialsDetails = ({ role, handleNext, handleBack }: Props) => {
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-        setError,
-    } = useForm<CredentialsDetailsProps>({})
-
+const CredentialsDetails = ({
+    role,
+    handleNext,
+    handleBack,
+    control,
+    setError,
+    handleSubmit,
+    errors,
+}: Props) => {
     const handleCredentials = (e: CredentialsDetailsProps) => {
         if (e.password !== e.confirmPassword) {
             setError(
@@ -78,6 +83,7 @@ const CredentialsDetails = ({ role, handleNext, handleBack }: Props) => {
                     },
                     {
                         inputName: "confirmPassword",
+                        labelName: "Confirm Password",
                         inputType: "password",
                         icon: "user-lock",
                         inputOptions: {
@@ -100,7 +106,7 @@ const CredentialsDetails = ({ role, handleNext, handleBack }: Props) => {
                     }}
                     className="capitalize text-lg text-sec"
                 >
-                    {role === "user" ? "Sign Up" : "Next"}
+                    {"Next"}
                 </Text>
             </TouchableOpacity>
         </View>

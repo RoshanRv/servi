@@ -6,9 +6,10 @@ type Props = {
     role: "" | Roles
     setRole: (role: Roles) => void
     handleNext: (np: number) => void
+    action: "Sign Up" | "Sign In"
 }
 
-const SelectRole = ({ role, setRole, handleNext }: Props) => {
+const SelectRole = ({ role, setRole, handleNext, action }: Props) => {
     return (
         <View className="flex flex-col justify-center items-center w-full h-full">
             {/*   Title   */}
@@ -18,7 +19,7 @@ const SelectRole = ({ role, setRole, handleNext }: Props) => {
                 }}
                 className="text-3xl text-pri"
             >
-                Sign Up
+                {action}
             </Text>
             {/*   Roles   */}
             <View className="flex flex-row justify-around items-center w-full mt-16">
@@ -46,7 +47,7 @@ const SelectRole = ({ role, setRole, handleNext }: Props) => {
                         fontFamily: "RalewayBold",
                     }}
                     className="capitalize text-lg text-sec"
-                >{`Sign Up As ${role}`}</Text>
+                >{`${action} As ${role}`}</Text>
             </TouchableOpacity>
         </View>
     )

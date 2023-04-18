@@ -8,9 +8,16 @@ type Props = {
     setRole: (role: Roles) => void
     handleNext: (np: number) => void
     handleBack: (np: number) => void
+    action: "Sign Up" | "Sign In"
 }
 
-const SelectWorker = ({ handleNext, role, setRole, handleBack }: Props) => {
+const SelectWorker = ({
+    handleNext,
+    role,
+    setRole,
+    handleBack,
+    action,
+}: Props) => {
     return (
         <View className="flex flex-col justify-center items-center w-full h-full">
             <BackBtn handleBack={handleBack} no={1} />
@@ -22,7 +29,7 @@ const SelectWorker = ({ handleNext, role, setRole, handleBack }: Props) => {
                 }}
                 className="text-3xl text-pri"
             >
-                Sign Up As Worker
+                {`${action} As Worker`}
             </Text>
             {/*   Roles   */}
             <View className="flex flex-row justify-around items-center w-full mt-16">
@@ -63,7 +70,7 @@ const SelectWorker = ({ handleNext, role, setRole, handleBack }: Props) => {
                         fontFamily: "RalewayBold",
                     }}
                     className="capitalize text-lg text-sec"
-                >{`Sign Up As ${role}`}</Text>
+                >{`${action} As ${role}`}</Text>
             </TouchableOpacity>
         </View>
     )

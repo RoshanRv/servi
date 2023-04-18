@@ -20,17 +20,17 @@ const RoleCard = ({ role, src, selectedRole, setRole }: Props) => {
     return (
         <TouchableOpacity
             onPress={() => setRole(role)}
-            className={`bg-pri shadow-lg shadow-black p-2 rounded-lg border-4 ${
+            className={`bg-pri shadow-lg shadow-black p-2 rounded-xl border-4 ${
                 selectedRole === role
-                    ? "border-white dark:border-black"
+                    ? "border-white dark:border-black scale-110 "
                     : "border-pri"
             } `}
         >
-            <View className="w-32 h-32 ">
-                <Image source={src} className="w-full h-full" />
+            <View className="w-24 h-10  relative rounded-full">
+                <Image source={src} className="w-full h-32  absolute -top-16" />
             </View>
             <Text
-                className="text-center text-xl text-sec mt-4 capitalize "
+                className="text-center text-xl text-sec mt-6 capitalize "
                 style={{
                     fontFamily: "RalewayBold",
                 }}
