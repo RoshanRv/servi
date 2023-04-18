@@ -9,12 +9,12 @@ import {
 } from "react-hook-form"
 import errorMsg from "../utils/errorMsg"
 import { COLORS, SIZES } from "../utils/constants"
-import toCapitalize from "../utils/toCapitalize"
-import { FontAwesome5, Ionicons } from "@expo/vector-icons"
+import { FontAwesome5 } from "@expo/vector-icons"
 
 interface InputProps<T extends FieldValues> {
     inputName: keyof T
-    inputType: InputModeOptions | "password"
+    labelName?: string
+    inputType: InputModeOptions | "password" | "multiline"
     inputOptions?: Omit<
         RegisterOptions<T, Path<T>>,
         "valueAsNumber" | "valueAsDate" | "setValueAs" | "disabled"
@@ -46,7 +46,8 @@ const Form = <T extends FieldValues>({ inputs, errors, control }: Props<T>) => {
                             }}
                             className="px-2 text-sm text-pri dark:text-gray-300 capitalize -mb-2"
                         >
-                            {input.inputName as string}
+                            {(input.labelName as string) ||
+                                (input.inputName as string)}
                         </Text>
                         {/* Input */}
                         <Controller
@@ -61,6 +62,7 @@ const Form = <T extends FieldValues>({ inputs, errors, control }: Props<T>) => {
                                         input.inputType === "password"
                                     }
                                     onBlur={onBlur}
+                                    multiline={input.inputType === "multiline"}
                                     value={value}
                                     onChangeText={onChange}
                                     style={{
@@ -69,7 +71,8 @@ const Form = <T extends FieldValues>({ inputs, errors, control }: Props<T>) => {
                                     placeholderTextColor={"gray"}
                                     cursorColor={COLORS.sec}
                                     inputMode={
-                                        input.inputType === "password"
+                                        input.inputType === "password" ||
+                                        input.inputType === "multiline"
                                             ? "text"
                                             : input.inputType
                                     }
@@ -88,7 +91,8 @@ const Form = <T extends FieldValues>({ inputs, errors, control }: Props<T>) => {
                             >
                                 {
                                     errorMsg(
-                                        input.inputName as string,
+                                        (input.labelName as string) ||
+                                            (input.inputName as string),
                                         errors[input.inputName]?.type
                                     ) as string
                                 }
