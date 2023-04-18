@@ -14,11 +14,7 @@ const BackBtn = ({ handleBack, no }: Props) => {
             className="absolute top-3 left-3"
             onPress={() => handleBack(no)}
         >
-            <Ionicons
-                name="ios-chevron-back-circle"
-                size={36}
-                color={COLORS.pri}
-            />
+            <Ionicons name="ios-chevron-back" size={36} color={COLORS.pri} />
         </TouchableOpacity>
     )
 }
