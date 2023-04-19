@@ -3,8 +3,6 @@ import Layout from "../components/Layout"
 import type { Roles } from "../components/RoleCard"
 import SelectRole from "../components/SelectRole"
 import SelectWorker from "../components/SelectWorker"
-import PersonalDetails from "../components/PersonalDetails"
-import CredentialsDetails from "../components/CredentialsDetails"
 import { useForm } from "react-hook-form"
 import LogIn from "../components/LogIn"
 
@@ -28,11 +26,14 @@ const SignIn = (props: Props) => {
     const [role, setRole] = useState<"" | Roles>("")
 
     const {
-        control: credentialControl,
-        handleSubmit: handleCredentialSubmit,
-        formState: { errors: credentialErrors },
-        setError,
+        control,
+        handleSubmit,
+        formState: { errors },
     } = useForm<LoginProps>({})
+
+    const handleLogIn = ()=>{
+
+    }
 
     return (
         <Layout>
@@ -58,9 +59,10 @@ const SignIn = (props: Props) => {
             {/*     Credential Details Such As Email, Password     */}
             {stage === 2 && (
                 <LogIn
-                    errors={credentialErrors}
-                    control={credentialControl}
-                    handleSubmit={handleCredentialSubmit}
+                    errors={errors}
+                    control={control}
+                    handleSubmit={handleSubmit}
+                    handleLogIn={handleLogIn}
                     role={role}
                     handleBack={handleBack}
                 />

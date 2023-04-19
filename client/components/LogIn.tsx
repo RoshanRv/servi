@@ -13,7 +13,7 @@ interface LoginProps {
 type Props = {
     control: Control<LoginProps, any>
     role: "" | Roles
-    handleSignIn: () => void
+    handleLogIn: () => void
     handleBack: (np: number) => void
     handleSubmit: UseFormHandleSubmit<LoginProps>
     errors: FieldErrors<LoginProps>
@@ -23,7 +23,7 @@ const LogIn = ({
     control,
     errors,
     handleBack,
-    handleSignIn,
+    handleLogIn,
     handleSubmit,
     role,
 }: Props) => {
@@ -68,7 +68,7 @@ const LogIn = ({
             <TouchableOpacity
                 disabled={role ? false : true}
                 className="px-6 py-2 mt-10  bg-white dark:bg-black border-2 border-pri rounded-lg shadow-lg shadow-black  "
-                onPress={handleSubmit(handleSignIn)}
+                onPress={handleSubmit(handleLogIn)}
             >
                 <Text
                     style={{
