@@ -7,7 +7,9 @@ import PersonalDetails from "../components/PersonalDetails"
 import CredentialsDetails from "../components/CredentialsDetails"
 import { useForm } from "react-hook-form"
 
-type Props = {}
+type Props = {
+    navigation: any
+}
 
 export interface CredentialsDetailsProps {
     email: string
@@ -22,7 +24,7 @@ export interface PersonalDetailsProps {
     aadharNo: string
 }
 
-const Signup = (props: Props) => {
+const Signup = ({ navigation }: Props) => {
     const [stage, setStage] = useState(0)
 
     const handleNext = (no: number) => {
@@ -52,6 +54,7 @@ const Signup = (props: Props) => {
             {/*    Select Role - User / Worker  */}
             {stage === 0 && (
                 <SelectRole
+                    navigation={navigation}
                     action="Sign Up"
                     role={role}
                     setRole={setRole}

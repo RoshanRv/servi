@@ -38,7 +38,7 @@ const HomeHeader = (props: Props) => {
                             fontFamily: "RalewayBold",
                         }}
                     >
-                        Sign Up
+                        Sign In
                     </Text>
                 </TouchableOpacity>
             </View>

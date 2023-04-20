@@ -1,17 +1,37 @@
 import { View, Text, TouchableOpacity } from "react-native"
 import React from "react"
 import RoleCard, { Roles } from "./RoleCard"
+import BackBtn from "./BackBtn"
+import { Ionicons } from "@expo/vector-icons"
+import { COLORS } from "../utils/constants"
 
 type Props = {
     role: "" | Roles
     setRole: (role: Roles) => void
     handleNext: (np: number) => void
     action: "Sign Up" | "Sign In"
+    navigation: any
 }
 
-const SelectRole = ({ role, setRole, handleNext, action }: Props) => {
+const SelectRole = ({
+    role,
+    setRole,
+    handleNext,
+    action,
+    navigation,
+}: Props) => {
     return (
         <View className="flex flex-col justify-center items-center w-full h-full">
+            <TouchableOpacity
+                className="absolute top-3 left-3"
+                onPress={() => navigation.goBack()}
+            >
+                <Ionicons
+                    name="ios-chevron-back"
+                    size={36}
+                    color={COLORS.pri}
+                />
+            </TouchableOpacity>
             {/*   Title   */}
             <Text
                 style={{
