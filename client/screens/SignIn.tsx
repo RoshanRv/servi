@@ -6,14 +6,16 @@ import SelectWorker from "../components/SelectWorker"
 import { useForm } from "react-hook-form"
 import LogIn from "../components/LogIn"
 
-type Props = {}
+type Props = {
+    navigation: any
+}
 
 export interface LoginProps {
     email: string
     password: string
 }
 
-const SignIn = (props: Props) => {
+const SignIn = ({ navigation }: Props) => {
     const [stage, setStage] = useState(0)
 
     const handleNext = (no: number) => {
@@ -31,15 +33,14 @@ const SignIn = (props: Props) => {
         formState: { errors },
     } = useForm<LoginProps>({})
 
-    const handleLogIn = ()=>{
-
-    }
+    const handleLogIn = () => {}
 
     return (
         <Layout>
             {/*    Select Role - User / Worker  */}
             {stage === 0 && (
                 <SelectRole
+                    navigation={navigation}
                     action="Sign In"
                     role={role}
                     setRole={setRole}

@@ -76,7 +76,7 @@ const LogIn = ({
                     }}
                     className="capitalize text-lg text-sec"
                 >
-                    {"Next"}
+                    {"Sign In"}
                 </Text>
             </TouchableOpacity>
         </View>
