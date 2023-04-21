@@ -1,17 +1,24 @@
 import { View, Text, Image, TouchableOpacity } from "react-native"
-import React from "react"
+import {useState} from "react"
 import Layout from "./Layout"
 import useUser from "../store/useUser"
 import NotSignedProfile from "./NotSignedProfile"
 import { FontAwesome5, Ionicons } from "@expo/vector-icons"
 import { SIZES } from "../utils/constants"
+import DropDownPicker from "react-native-dropdown-picker"
 
 type Props = {
     navigation: any
 }
 
+const data=[{label:'English',value:'en'},{label:"தமிழ்",value:'ta'}
+]
+
+
 const ProfileSettings = ({ navigation }: Props) => {
     const user = useUser((state) => state.user)
+    const [language,setLanguage] = useState("English")
+    const [openLanguage,setOpenLanguage] = useState(false)
 
     return (
         <Layout>
@@ -84,6 +91,36 @@ const ProfileSettings = ({ navigation }: Props) => {
                         </Text>
                     </View>
                     {/*  Select Input... */}
+                    <DropDownPicker
+                    bottomOffset={10}
+                    dropDownDirection="BOTTOM"
+                    placeholder={("Select Language") as string}
+                    textStyle={{
+                        color: "gray",
+                        fontWeight: "500",
+                        fontFamily: "RalewayRegular",
+                    }}
+                    style={{
+                        borderColor: "white",
+                    }}
+                    dropDownContainerStyle={{
+                        borderColor: "white",
+                        shadowColor: "gray",
+                        shadowOffset: {
+                            width: 0,
+                            height: 1,
+                        },
+                        shadowOpacity: 0.22,
+                        shadowRadius: 2.22,
+
+                        elevation: 3,
+                    }}
+                    open={openLanguage}
+                    setOpen={setOpenLanguage}
+                    value={language}
+                    setValue={setLanguage}
+                    items={data}
+                />
                 </View>
             </View>
         </Layout>
