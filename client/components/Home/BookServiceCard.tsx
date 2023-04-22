@@ -1,8 +1,8 @@
 import { View, Text, Image, TouchableOpacity, Animated } from "react-native"
 import React, { useEffect, useRef, useState } from "react"
-import { data } from "../screens/Service"
+import { data } from "../../screens/Home/Service"
 import { FontAwesome5 } from "@expo/vector-icons"
-import { COLORS, SIZES } from "../utils/constants"
+import { COLORS, SIZES } from "../../utils/constants"
 
 type Props = {
     details: typeof data[0]

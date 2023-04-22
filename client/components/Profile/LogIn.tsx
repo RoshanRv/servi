@@ -3,7 +3,7 @@ import React from "react"
 import BackBtn from "./BackBtn"
 import { Control, FieldErrors, UseFormHandleSubmit } from "react-hook-form"
 import { Roles } from "./RoleCard"
-import Form from "./Form"
+import Form from "../Form"
 
 interface LoginProps {
     email: string

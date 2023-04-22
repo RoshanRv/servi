@@ -1,10 +1,10 @@
 import { FlatList } from "react-native"
 import React from "react"
-import HomeHeader from "../components/HomeHeader"
-import { COLORS } from "../utils/constants"
+import HomeHeader from "../../components/Home/HomeHeader"
+import { COLORS } from "../../utils/constants"
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons"
-import ServiceCard from "../components/ServiceCard"
-import Layout from "../components/Layout"
+import ServiceCard from "../../components/Home/ServiceCard"
+import Layout from "../../components/Layout"
 
 type Props = {}
 

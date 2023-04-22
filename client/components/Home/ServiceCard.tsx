@@ -1,9 +1,9 @@
 import { View, Text, Image, TouchableOpacity } from "react-native"
 import React from "react"
-import { data } from "../screens/Services"
+import { data } from "../../screens/Home/Services"
 
 type Props = {
-    service: typeof data[0]
+    service: (typeof data)[0]
     index: number
     navigation: any
 }

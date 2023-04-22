@@ -2,11 +2,11 @@ import { View, Text, TouchableOpacity, TextInput } from "react-native"
 import React, { useEffect } from "react"
 import RoleCard, { Roles } from "./RoleCard"
 import type { Control, FieldErrors, UseFormHandleSubmit } from "react-hook-form"
-import Form from "./Form"
+import Form from "../Form"
 import BackBtn from "./BackBtn"
 import { AntDesign } from "@expo/vector-icons"
-import { COLORS } from "../utils/constants"
-import { PersonalDetailsProps } from "../screens/Signup"
+import { COLORS } from "../../utils/constants"
+import type { PersonalDetailsProps } from "../../screens/Profile/Signup"
 
 type Props = {
     role: "" | Roles

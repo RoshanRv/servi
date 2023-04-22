@@ -1,8 +1,8 @@
 import { View, Text, FlatList } from "react-native"
 import React from "react"
-import Layout from "../components/Layout"
-import ServiceHeader from "../components/ServiceHeader"
-import BookServiceCard from "../components/BookServiceCard"
+import Layout from "../../components/Layout"
+import ServiceHeader from "../../components/Home/ServiceHeader"
+import BookServiceCard from "../../components/Home/BookServiceCard"
 
 type Props = {}
 

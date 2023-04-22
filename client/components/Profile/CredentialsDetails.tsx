@@ -7,9 +7,9 @@ import type {
     UseFormHandleSubmit,
     UseFormSetError,
 } from "react-hook-form"
-import Form from "./Form"
+import Form from "../Form"
 import BackBtn from "./BackBtn"
-import { CredentialsDetailsProps } from "../screens/Signup"
+import { CredentialsDetailsProps } from "../../screens/Profile/Signup"
 
 type Props = {
     control: Control<CredentialsDetailsProps, any>

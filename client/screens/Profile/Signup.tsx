@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import Layout from "../components/Layout"
-import type { Roles } from "../components/RoleCard"
-import SelectRole from "../components/SelectRole"
-import SelectWorker from "../components/SelectWorker"
-import PersonalDetails from "../components/PersonalDetails"
-import CredentialsDetails from "../components/CredentialsDetails"
+import Layout from "../../components/Layout"
+import type { Roles } from "../../components/Profile/RoleCard"
+import SelectRole from "../../components/Profile/SelectRole"
+import SelectWorker from "../../components/Profile/SelectWorker"
+import PersonalDetails from "../../components/Profile/PersonalDetails"
+import CredentialsDetails from "../../components/Profile/CredentialsDetails"
 import { useForm } from "react-hook-form"
 
 type Props = {

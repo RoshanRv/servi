@@ -11,8 +11,15 @@ interface UseUserProps {
 }
 
 const useUser = create<UseUserProps>((set) => ({
-    user: null,
+    user: {
+        name: "dasd",
+        role: "user",
+    },
     setUser: (user: any) => set({ user }),
 }))
 
 export default useUser
+// {
+//     name: "dasd",
+//     role: "user",
+// }

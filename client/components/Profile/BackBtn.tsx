@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native"
 import React from "react"
 import { Ionicons } from "@expo/vector-icons"
-import { COLORS } from "../utils/constants"
+import { COLORS } from "../../utils/constants"
 
 type Props = {
     handleBack: (no: number) => void

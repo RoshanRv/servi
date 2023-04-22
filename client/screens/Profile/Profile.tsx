@@ -3,8 +3,9 @@ import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import Signup from "./Signup"
 import SignIn from "./SignIn"
-import useUser from "../store/useUser"
-import ProfileSettings from "../components/ProfileSettings"
+import useUser from "../../store/useUser"
+import ProfileSettings from "./ProfileSettings"
+import Test from "../Test"
 
 type Props = {}
 
@@ -15,13 +16,14 @@ const Profile = (props: Props) => {
 
     return (
         <Stack.Navigator
-            initialRouteName="profileSettings"
+            initialRouteName="test"
             screenOptions={{
                 headerShown: false,
                 customAnimationOnGesture: true,
                 animation: "slide_from_right",
             }}
         >
+            <Stack.Screen name="test" component={Test} />
             <Stack.Screen name="profileSettings" component={ProfileSettings} />
             <Stack.Screen name="signup" component={Signup} />
             <Stack.Screen name="signin" component={SignIn} />

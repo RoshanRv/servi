@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native"
 import Slider from "./Slider"
 import { Feather } from "@expo/vector-icons"
-import { COLORS } from "../utils/constants"
+import { COLORS } from "../../utils/constants"
 
 type Props = {}
 

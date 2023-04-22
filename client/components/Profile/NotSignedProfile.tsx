@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from "react-native"
 import React from "react"
 import { Feather } from "@expo/vector-icons"
-import { COLORS } from "../utils/constants"
+import { COLORS } from "../../utils/constants"
 
 type Props = {
     navigation: any
@@ -9,7 +9,7 @@ type Props = {
 
 const NotSignedProfile = ({ navigation }: Props) => {
     return (
-        <View className="w-full h-full ">
+        <View className="w-full ">
             <Text
                 style={{
                     fontFamily: "RalewayBold",

@@ -1,10 +1,10 @@
 import { View, Text, Image, TouchableOpacity } from "react-native"
 import React from "react"
-import { COLORS, services } from "../utils/constants"
+import { COLORS, services } from "../../utils/constants"
 import { LinearGradient } from "expo-linear-gradient"
 
 type Props = {
-    service: typeof services[0]
+    service: (typeof services)[0]
 }
 
 const SliderCard = ({ service }: Props) => {

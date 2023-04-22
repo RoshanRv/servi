@@ -3,7 +3,7 @@ import React from "react"
 import RoleCard, { Roles } from "./RoleCard"
 import BackBtn from "./BackBtn"
 import { Ionicons } from "@expo/vector-icons"
-import { COLORS } from "../utils/constants"
+import { COLORS } from "../../utils/constants"
 
 type Props = {
     role: "" | Roles

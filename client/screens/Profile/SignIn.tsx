@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import Layout from "../components/Layout"
-import type { Roles } from "../components/RoleCard"
-import SelectRole from "../components/SelectRole"
-import SelectWorker from "../components/SelectWorker"
+import Layout from "../../components/Layout"
+import type { Roles } from "../../components/Profile/RoleCard"
+import SelectRole from "../../components/Profile/SelectRole"
+import SelectWorker from "../../components/Profile/SelectWorker"
 import { useForm } from "react-hook-form"
-import LogIn from "../components/LogIn"
+import LogIn from "../../components/Profile/LogIn"
 
 type Props = {
     navigation: any
